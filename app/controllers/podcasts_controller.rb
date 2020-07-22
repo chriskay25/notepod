@@ -13,6 +13,10 @@ class PodcastsController < ApplicationController
     end 
   end 
 
+  def show
+    @podcast = Podcast.find_by(id: params[:id])
+  end
+
 
   private
 
