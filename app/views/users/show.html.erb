@@ -1,6 +1,19 @@
-<h1>User Show Page</h1>
+<h1><%= @user.username %>'s Profile</h1>
 
-Name: <%= @user.username %>
+<h3>Your Podcasts</h3>
+<% if @user.podcasts.empty? %>
+  <p>"You aren't currently subscribed to any podcasts."</p>
+<% else %>
+  <ul>
+    <% @user.podcasts.each do |pod| %>
+      <li><%= link_to "#{pod.name}", podcast_path(pod) %></li>
+    <% end %>
+  </ul>
+<% end  %>
+
+<br>
+
+<%# link_to "Subscribe to a new podcast" %>
 
 <br><br>
 
