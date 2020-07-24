@@ -1,0 +1,10 @@
+<h1>Podcast Index</h1>
+
+<ul>
+  <% @podcasts.each do |pod| %>
+    <li><%= link_to pod.name, podcast_path(pod) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "User Profile", user_path(current_user) %> |
+<%= link_to "Logout", logout_path, method: 'delete' %>
