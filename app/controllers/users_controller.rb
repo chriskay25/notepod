@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     user = User.find_by(id: params[:id])
     user.delete
     session.clear 
+    @current_user = nil
     redirect_to root_path
   end 
 
