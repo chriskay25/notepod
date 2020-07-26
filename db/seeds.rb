@@ -28,3 +28,17 @@ pod10 = Podcast.create(name: "Tenth Pod")
 sub1 = Subscription.create(user_id: user6.id, podcast_id: pod1.id)
 sub2 = Subscription.create(user_id: user6.id, podcast_id: pod2.id)
 sub3 = Subscription.create(user_id: user6.id, podcast_id: pod3.id)
+
+ep1 = Episode.create(title: "Episode 1", podcast_id: pod1.id)
+ep2 = Episode.create(title: "Episode 2", podcast_id: pod1.id)
+ep3 = Episode.create(title: "Episode 3", podcast_id: pod1.id)
+ep4 = Episode.create(title: "Episode 4", podcast_id: pod1.id)
+ep5 = Episode.create(title: "Episode 5", podcast_id: pod1.id)
+
+ep6 = Episode.create(title: "Ep1", podcast_id: pod2.id)
+ep7 = Episode.create(title: "Ep2", podcast_id: pod2.id)
+ep8 = Episode.create(title: "Ep3", podcast_id: pod2.id)
+ep9 = Episode.create(title: "Ep4", podcast_id: pod2.id)
+
+ep10 = Episode.create(title: "Number 1", podcast_id: pod3.id)
+ep11 = Episode.create(title: "Number 2", podcast_id: pod3.id)
