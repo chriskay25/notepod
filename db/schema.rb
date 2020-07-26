@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_171410) do
+ActiveRecord::Schema.define(version: 2020_07_26_182727) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "title"
+    t.integer "podcast_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
+  end
 
   create_table "podcasts", force: :cascade do |t|
     t.string "name"
@@ -32,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_171410) do
     t.string "password_digest"
   end
 
+  add_foreign_key "episodes", "podcasts"
   add_foreign_key "subscriptions", "podcasts"
   add_foreign_key "subscriptions", "users"
 end
