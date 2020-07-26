@@ -5,6 +5,12 @@ class EpisodesController < ApplicationController
   end
 
   def create
+    episode = Episode.new(episode_params)
+    if episode.save
+      redirect_to episode_path(episode)
+    else
+      render :new
+    end 
   end
 
   def show
