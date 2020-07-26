@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create]
   resources :podcasts
   resources :subscriptions
+  resources :episodes
 end
  
