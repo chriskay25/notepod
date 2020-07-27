@@ -2,7 +2,12 @@
 
 <ul>
   <% @podcasts.each do |pod| %>
-    <li><%= link_to pod.name, podcast_path(pod) %></li>
+    <% if !current_user.podcasts.include?(pod) %>
+      <li>
+        <%= link_to pod.name.upcase, podcast_path(pod) %> -
+        <%= link_to " ADD +", subscriptions_path(podcast_id: pod), method: :post, class: "add-podcast" %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 
