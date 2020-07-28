@@ -1,0 +1,10 @@
+<h1>New Note</h1>
+
+<%= form_for(@note, url: "/episodes/#{@episode.id}/notes") do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <br><br>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :episode_id, value: @episode.id %>
+  <%= f.submit %>
+<% end %>
