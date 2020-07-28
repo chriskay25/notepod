@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   
-  resources :users, except: [:new, :create]
+  resources :users, except: [:new, :create] do
+    resources :podcasts, only: [:create]
+  end 
   resources :podcasts
   resources :subscriptions
   resources :episodes

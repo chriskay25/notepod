@@ -1,5 +1,7 @@
 <h1>Podcast Index</h1>
 
+<p>Subscribe to a podcast below: </p>
+
 <ul>
   <% @podcasts.each do |pod| %>
     <% if !current_user.podcasts.include?(pod) %>
@@ -11,5 +13,12 @@
   <% end %>
 </ul>
 
-<%= link_to "User Profile", user_path(current_user) %> |
-<%= link_to "Logout", logout_path, method: 'delete' %>
+<p>Don't see what you're looking for?</p>
+<p>Enter the name of a podcast to add it to our database and subscribe:</p>
+<%= form_tag "/users/#{current_user.id}/podcasts", method: "post" do |f| %>
+  <%= label_tag "podcast[name]", "Podcast Name" %>
+  <%= text_field_tag "podcast[name]" %>
+  <br><br>
+  
+  <%= submit_tag "Add Podcast" %>
+<% end %>
