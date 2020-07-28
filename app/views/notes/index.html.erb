@@ -1,0 +1,7 @@
+<h2>Notes for <%= @episode.title %></h2>
+
+<ul>
+<% @episode.notes.each do |note| %>
+  <li><%= note.content %></li>
+<% end %>
+</ul>
