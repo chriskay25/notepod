@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user1 = User.create(username: "user1", password: "password1")
-user2 = User.create(username: "user2", password: "password2")
-user3 = User.create(username: "user3", password: "password3")
-user4 = User.create(username: "user4", password: "password4")
-user5 = User.create(username: "mariah", password: "sappington")
-user6 = User.create(username: "chris", password: "kay")
+user1 = User.create(username: "user1", email: "user1@user1.com", password: "password1")
+user2 = User.create(username: "user2", email: "user2@user2.com", password: "password2")
+user3 = User.create(username: "user3", email: "user3@user3.com", password: "password3")
+user4 = User.create(username: "user4", email: "user4@user4.com", password: "password4")
+user5 = User.create(username: "mariah", email: "user51@user5.com", password: "sappington")
+user6 = User.create(username: "chris", email: "8eskid@gmail.com", password: "kay")
 
 pod1 = Podcast.create(name: "First Pod")
 pod2 = Podcast.create(name: "Second Pod")
