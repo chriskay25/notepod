@@ -10,9 +10,9 @@ class NotesController < ApplicationController
 
   def create
     if params[:episode_id] && episode = Episode.find_by(id: params[:episode_id])
-      @note = episode.notes.build(notes_params)
+      @note = episode.notes.build(note_params)
     else
-      @note = Note.new(notes_params)
+      @note = Note.new(note_params)
     end
 
     if @note.save
@@ -22,9 +22,13 @@ class NotesController < ApplicationController
     end 
   end 
 
+  def show
+    @note = Note.find_by(params[:id])
+  end 
+
   private
 
-  def notes_params
+  def note_params
     params.require(:note).permit(:content)
   end
 
