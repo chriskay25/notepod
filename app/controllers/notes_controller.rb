@@ -25,6 +25,10 @@ class NotesController < ApplicationController
     @note = Note.find_by(id: params[:id])
   end 
 
+  def index
+    @episode = Episode.find_by(id: params[:episode_id])
+  end 
+
   private
 
   def note_params
