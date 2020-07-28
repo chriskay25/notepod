@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end 
   resources :podcasts
   resources :subscriptions
-  resources :episodes
+  resources :episodes do
+    resources :notes, only: [:new, :show, :index]
+  end 
   resources :notes
 end
  
