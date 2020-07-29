@@ -1,10 +1,10 @@
-<h1><%= @user.username %>'s Profile</h1>
+<h1><%= @user.username.upcase %>'S PROFILE</h1>
 
 <h3>Your Podcasts</h3>
 <% if @user.podcasts.empty? %>
   <p>"You aren't currently subscribed to any podcasts."</p>
 <% else %>
-  <ul>
+  <ul class="list">
     <% @user.podcasts.each do |pod| %>
       <li><%= link_to "#{pod.name}", podcast_path(pod) %></li>
     <% end %>
@@ -13,12 +13,9 @@
 
 <br>
 
-<%# link_to "Subscribe to a new podcast" %>
-<p>Need some inspiration? See what <%= link_to "podcasts", podcasts_path %> other users are listening to.</p>
+<p>Click <%= link_to "here", podcasts_path %> to add a new Podcast or see what other users are listening to.</p>
 
 <br><br>
 
-<%= link_to "Home", root_path %> |
 <%= link_to "Edit User", edit_user_path %> |
-<%= link_to "Delete User", user_path(@user), method: 'delete' %> |
-<%= link_to "Logout", logout_path, method: 'delete' %>
+<%= link_to "Delete User", user_path(@user), method: 'delete', confirm: "Are you sure?" %> |
