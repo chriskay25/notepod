@@ -20,5 +20,6 @@ Rails.application.routes.draw do
     resources :notes, only: [:new, :create, :index]
   end 
   resources :notes, only: [:show]
+  get '/discover' => 'episodes#discover'
 end
  

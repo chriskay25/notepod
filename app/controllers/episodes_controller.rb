@@ -17,6 +17,10 @@ class EpisodesController < ApplicationController
     @episode = Episode.find_by(id: params[:id])
   end
 
+  def discover
+    @discover = Episode.most_noted.first.title
+  end 
+
   private
 
   def episode_params
