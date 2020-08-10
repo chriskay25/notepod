@@ -76,3 +76,18 @@ li a {
 label {
   font-weight: 600;
 }
+
+input:focus {
+  border: 2px solid #555;
+  background-color: rgb(208, 232, 240);
+}
+input[type=text], input[type=password], input[type=password_confirmation] {
+  margin: 0 .75em;
+}
+input[type=submit] {
+  color: black;
+  font-weight: 600;
+  background-color: #688fefad;
+  text-align: center;
+  border-radius: 6px;
+}
