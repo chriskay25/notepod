@@ -1,0 +1,11 @@
+<h1>Podcast Show Page</h1>
+
+<h2>Podcast: <%= @podcast.name %></h2>
+
+<ul>
+  <% @podcast.episodes.each do |ep| %>
+    <li><%= link_to ep.title, episode_path(ep) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new episode", new_episode_path %>

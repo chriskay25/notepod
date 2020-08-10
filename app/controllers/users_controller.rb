@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
 
   def new
     @user = User.new
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
     user = User.find_by(id: params[:id])
     user.delete
     session.clear 
+    @current_user = nil
     redirect_to root_path
   end 
 

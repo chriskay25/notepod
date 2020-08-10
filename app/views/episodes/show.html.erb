@@ -1,0 +1,6 @@
+<h1>Podcast: <%= @episode.podcast.name %></h3>
+<h2>Episode: <%= @episode.title %></h4>
+
+<%= link_to "See notes for this episode", episode_notes_path(@episode) %>
+<br><br>
+<%= link_to "Add a note", "/episodes/#{@episode.id}/notes/new" %>

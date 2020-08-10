@@ -1,0 +1,24 @@
+<h1>Podcast Index</h1>
+
+<p>Subscribe to a podcast below: </p>
+
+<ul>
+  <% @podcasts.each do |pod| %>
+    <% if !current_user.podcasts.include?(pod) %>
+      <li>
+        <%= link_to pod.name.upcase, podcast_path(pod) %> -
+        <%= link_to " ADD +", subscriptions_path(podcast_id: pod), method: :post, class: "add-podcast" %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<p>Don't see what you're looking for?</p>
+<p>Enter the name of a podcast to add it to our database and subscribe:</p>
+<%= form_tag "/users/#{current_user.id}/podcasts", method: "post" do |f| %>
+  <%= label_tag "podcast[name]", "Podcast Name" %>
+  <%= text_field_tag "podcast[name]" %>
+  <br><br>
+  
+  <%= submit_tag "Add Podcast" %>
+<% end %>

@@ -10,11 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_223858) do
+ActiveRecord::Schema.define(version: 2020_07_28_214031) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "title"
+    t.integer "podcast_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["podcast_id"], name: "index_episodes_on_podcast_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "episode_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_id"], name: "index_notes_on_episode_id"
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "podcasts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "podcast_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["podcast_id"], name: "index_subscriptions_on_podcast_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "email"
   end
 
+  add_foreign_key "episodes", "podcasts"
+  add_foreign_key "notes", "episodes"
+  add_foreign_key "notes", "users"
+  add_foreign_key "subscriptions", "podcasts"
+  add_foreign_key "subscriptions", "users"
 end

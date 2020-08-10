@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+  before_action :redirect_if_not_logged_in
   # Gives access to methods in views. 
   helper_method :current_user, :logged_in? 
 
@@ -12,7 +13,10 @@ class ApplicationController < ActionController::Base
   end 
 
   def redirect_if_not_logged_in
-    redirect_to root_path if !logged_in?
+    if !logged_in?
+      flash[:message] = "You must be logged in to view that page."
+      redirect_to root_path
+    end 
   end 
 
 end
