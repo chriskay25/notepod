@@ -62,3 +62,5 @@ gem "omniauth", "~> 1.9"
 gem "dotenv-rails", "~> 2.7"
 
 gem "omniauth-google-oauth2", "~> 0.8.0"
+
+gem "faker", "~> 2.13"
