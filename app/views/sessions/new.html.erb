@@ -1,7 +1,5 @@
 <h1>Login</h1>
 
-<%= flash[:message] if flash[:message] %>
-
 <%= form_for :user do |f| %>
   <%= f.label :username, "Username" %>
   <%= f.text_field :username %>
@@ -16,5 +14,4 @@
 
 <br>
 
-<%= link_to "Home", root_path %> |
-<%= link_to "Signup", signup_path %>
+<%= link_to "Home", root_path %>
