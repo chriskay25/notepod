@@ -1,6 +1,8 @@
 <h1>New Episode</h1>
 
-<%= form_for @episode do |f| %>
+<%= render partial: "layouts/errors", locals: { object: @episode } %>
+
+<%= form_for(@episode, url: podcast_episodes_path) do |f| %>
   <%= f.label :title, "Title" %>
   <%= f.text_field :title %>
   <br><br>
