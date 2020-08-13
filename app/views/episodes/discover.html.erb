@@ -1,3 +1,9 @@
 <h1>Most Noted Episodes</h1>
 
-<%= @discover %>
+<ol>
+  <% @discover.each do |ep| %>
+    <li><h3>Episode: <%= link_to ep.title, episode_path(ep) %></h3></li>
+    <p>Podcast: <%= link_to ep.podcast.name, podcast_path(ep.podcast) %></p>
+  <% end %>
+</ol>
+

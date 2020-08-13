@@ -4,7 +4,7 @@ class Episode < ApplicationRecord
   has_many :users, through: :notes
   validates :title, presence: true
 
-  scope :most_noted, -> { order(note_count: :desc).limit(1) }
+  scope :most_noted, -> { order(note_count: :desc).limit(5) }
 
   def note_count
     notes.size
