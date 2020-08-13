@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :create] do
     resources :podcasts, only: [:create]
   end 
-  resources :podcasts
+  resources :podcasts do
+    resources :episodes, only: [:new, :create]
+  end 
   resources :subscriptions
-  resources :episodes do
+  resources :episodes, except: [:new, :create] do
     resources :notes, only: [:new, :create, :index]
   end 
   resources :notes, only: [:show]
