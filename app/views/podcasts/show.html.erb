@@ -1,5 +1,3 @@
-<h1>Podcast Show Page</h1>
-
 <h2>Podcast: <%= @podcast.name %></h2>
 
 <ul>
@@ -8,4 +6,4 @@
   <% end %>
 </ul>
 
-<%= link_to "Add a new episode", new_episode_path %>
+<%= link_to "Add a new episode", new_podcast_episode_path(@podcast) %>
