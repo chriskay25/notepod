@@ -19,4 +19,11 @@ class ApplicationController < ActionController::Base
     end 
   end 
 
+  def authorized?
+    if current_user.id != params[:id].to_i
+      flash[:message] = "You are not authorized to view that page."
+      redirect_to user_path(current_user) 
+    end
+  end 
+
 end

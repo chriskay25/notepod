@@ -16,20 +16,24 @@ class UsersController < ApplicationController
   end 
 
   def show
+    authorized?
     @user = User.find_by(id: params[:id])
   end 
 
   def edit
+    authorized?
     @user = User.find_by(id: params[:id])
   end 
 
   def update
+    authorized?
     @user = User.find_by(id: params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end 
 
   def destroy
+    authorized?
     user = User.find_by(id: params[:id])
     user.delete
     session.clear 
